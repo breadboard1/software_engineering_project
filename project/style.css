@@ -1,0 +1,38 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.navbar-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: red;
+}
+.logo{
+    width: 150px;
+}
+.menus-container{
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    color: white;
+}
+.banner-img{
+    width: 100%;
+}
+.banner-container{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    height: 100vh;
+    align-items: center;
+}
+.title{
+    font-size: 66px;
+    font-weight: bold;
+    color: cyan;
+}
+.description{
+    font-size: 22px;
+    
+}
