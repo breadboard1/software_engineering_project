@@ -1,0 +1,13 @@
+.card-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.id-title-box {
+  display: flex;
+}
+#title-bar {
+  text-align: center;
+  font-size: 100px;
+  color: maroon;
+}

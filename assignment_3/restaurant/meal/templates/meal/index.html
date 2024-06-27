@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<h1 id="title-bar">Our Meals :</h1>
+
+<div class="card-container">
+  {% for m in categories %}
+  <div class="card" style="width: 18rem">
+    <img src="{{m.strCategoryThumb}}" class="card-img-top" alt="images" />
+    <div class="card-body">
+      <div class="id-title-box">
+        <h5 class="card-title">{{m.idCategory}}.</h5>
+        <h5 class="card-title">{{m.strCategory}}</h5>
+      </div>
+      <p class="card-text">{{ m.strCategoryDescription|truncatewords:10 }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<link rel="stylesheet" href="{% static "css/meal.css" %}">
+<h1>this is an application</h1>
+{% endblock content %}

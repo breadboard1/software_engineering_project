@@ -1,0 +1,9 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="container">
+  <h1 id="about-title">about us</h1>
+  <p>description about us</p>
+  <img id="founder-pic" src="{% static "/images/founders_pic.jpg" %}"
+  alt="photo">
+</div>
+<link rel="stylesheet" href="{% static 'css/about.css' %}" />
+{% endblock content %}

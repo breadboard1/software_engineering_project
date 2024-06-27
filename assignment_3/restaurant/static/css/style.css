@@ -1,0 +1,11 @@
+#home-img {
+  padding-left: 200px;
+  margin-top: 30px;
+}
+#title-bar {
+  text-align: center;
+  justify-content: space-around;
+  font-weight: bold;
+  font-size: 100px;
+  color: maroon;
+}
