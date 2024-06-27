@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static '/meals/styles.css' %}" />
+
+<h1>Traditional Foods</h1>
+<div id="card-container">
+  {% for meal in meals %}
+  <div class="card" style="width: 18rem">
+    <img
+      class="card-img-top"
+      src="{{ meal.strMealThumb }}"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ meal.strMeal }}</h5>
+      <p class="card-text">
+        This is a traditional Bengali food. It is eaten throughout the country.
+      </p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<h1>This is an application.</h1>
+{% endblock content %}
