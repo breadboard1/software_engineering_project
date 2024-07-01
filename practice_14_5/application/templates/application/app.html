@@ -1,0 +1,6 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %}
+<h1>The Example Page</h1>
+<form action="" style="width: 50%; margin: auto">
+  {% csrf_token %} {{forms|crispy}}
+</form>
+{% endblock content %}
