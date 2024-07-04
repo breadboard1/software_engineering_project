@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form action="" style="width: 50%; margin: auto" method="POST">
+  {% if type == 'Signup' %}
+  <h1>Create Your Account</h1>
+  {% else %}
+  <h1>Log In</h1>
+  {% endif %}
+  {% csrf_token %} {{forms|crispy}}
+  {% if type == 'Signup' %}
+  <button class="btn btn-primary mb-5">Sign up now</button>
+  {% else %}
+  <button class="btn btn-primary mb-5">Log in</button>
+  {% endif %}
+</form>
+{% endblock content %}
