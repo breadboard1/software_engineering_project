@@ -15,7 +15,7 @@ def sign_up(request):
             if form.is_valid():
                 form.save()
                 messages.success(request, 'Account created successfully')
-                return redirect('login')
+                return redirect('profile')
         else:
             form = RegisterForm()
         return render(request, './application/sign_up.html', {'form': form})
@@ -32,7 +32,7 @@ def log_in(request):
                 user = authenticate(username=name, password=userPass)
                 if user is not None:
                     login(request, user)
-                    messages.success(request, 'Welcome back!')
+                    messages.success(request, 'Logged in successfully')
                     return redirect('profile')
         else:
             form = AuthenticationForm()
@@ -41,13 +41,11 @@ def log_in(request):
         return redirect('profile')
 
 def profile(request):
-    # if request.user.is_authenticated:
-    #     return render(request, './application/profile.html', {'user': request.user})
-    # return redirect('login')
     return update_profile(request)
 
 def log_out(request):
     logout(request)
+    messages.success(request, 'Logged out successfully')
     return redirect('login')
 
 def change_pass(request):
