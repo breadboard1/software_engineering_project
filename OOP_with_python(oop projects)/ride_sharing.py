@@ -30,9 +30,9 @@ class User(ABC):
         raise NotImplementedError
 
 class Rider(User):
-    def __init__(self, name, email, nid, address, initial_amount):
+    def __init__(self, name, email, nid, current_location, initial_amount):
         self.__wallet = initial_amount
-        self.address = address
+        self.current_location = current_location
         self.current_ride = None
         super().__init__(name, email, nid)
 
@@ -40,7 +40,29 @@ class Rider(User):
         print(f"Hi, I am {self.name}. This is my email {self.email} ID.")
 
     def load_cash(self, amount):
-        self.__wallet += amount
+        if amount > 0:
+            self.__wallet += amount
+
+    def update_location(self, current_location):
+        self.current_location = current_location
+
+    def request_ride(self):
+        pass
+
+    def show_current_ride(self):
+        print(f"Current ride {self.current_ride}.")
+
+class Driver(User):
+    def __init__(self, name, email, nid, current_location):
+        self.current_location = current_location
+        self.__wallet = 0
+        super().__init__(name, email, nid)
+
+    def profile(self):
+        print(f"Hi, I am {self.name}. This is my email {self.email} ID.")
+
+    def accept_ride(self, ride):
+        pass
 
 
 
