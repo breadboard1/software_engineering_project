@@ -26,7 +26,7 @@ def main():
     menu.show_menu()
 
     # make a restaurant
-    restaurant = Restaurant('doyal baba restaurant', 2000, menu)
+    restaurant = Restaurant('doyal baba restaurant', 1000, menu)
 
     # add employees
     manager = Manager('kala chan', '293818', 'kala@gmail.com', 'kala pur', 1500, 'jan 1 2023', 'core')
@@ -51,7 +51,29 @@ def main():
     # customer_1 paying for order_1
     restaurant.receive_payment(order_1, 1500, customer_1)
 
-    print("revenue and balance consequtively :", restaurant.revenue, restaurant.balance)
+    print("first customer revenue and balance consequtively :", restaurant.revenue, restaurant.balance)
+
+    # adding customer details
+    customer_2 = Customer('chuppu', '837191', 'dildar@gmail.com', 'bonani', 1000)
+    # customer_2 placing an order
+    order_2 = Order(customer_2, [pizza_3, burger_1, coffee])
+    customer_2.place_order(order_2)
+    restaurant.add_order(order_2)
+
+    # customer_2 paying for order_2
+    restaurant.receive_payment(order_2, 2000, customer_2)
+
+    print("second cusotmer revenue and balance consequtively :", restaurant.revenue, restaurant.balance)
+
+    # pay rent
+    restaurant.pay_expense(restaurant.rent, 'rent')
+    print("after rent, revenue, balance and expense consequtively :", restaurant.revenue, restaurant.balance, restaurant.expense)
+
+    # paying salary
+    restaurant.pay_salary(server)
+    print("after salary, revenue, balance and expense consequtively :", restaurant.revenue, restaurant.balance, restaurant.expense)
+
+
 
 if __name__ == "__main__":
     main()
