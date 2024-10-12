@@ -2,11 +2,33 @@ class Bank:
     def __init__(self, name, address):
         self.name = name
         self.address = address
-        self.__balance = 0
+        self.__bank_balance = 0
         self.admins = []
         self.users = []
-        self.__loan = 0
-        self.loan_feature = True
+        self.__total_loan = 0
+        self.loan = True
+        self.maxLoan = 50000
+        self.minLoan = 500
+
+    def balance(self, amount, type):
+        if type == 'deposit':
+            self.__bank_balance += amount
+        elif type == 'withdraw':
+            self.__bank_balance -= amount
+        else:
+            print("Error!")
+
+    def adjust_loan(self, amount, type):
+        if type == 'withdraw':
+            self.__total_loan += amount
+        else:
+            self.__total_loan -= amount
+
+    def dewlia(self, amount):
+        return amount > self.__bank_balance
+
+    def loan_true_false(self):
+        return self.loan
 
     def add_user(self, user):
         self.users.append(user)
@@ -40,18 +62,18 @@ class Bank:
 
     def total_balance(self, admin):
         if admin in self.admins:
-            print(f"Total bank balance is {self.__balance}")
+            print(f"Total {self.name} balance is {self.__bank_balance} taka.")
         else:
             print("Sorry! You need administrative power...")
 
     def loan_amount(self, admin):
         if admin in self.admins:
-            print(f"Total loan amount {self.loan_amount}.")
+            print(f"Total loan amount {self.__total_loan} taka.")
         else:
             print("You need administrative power...")
 
     def loan_feature_management(self, admin):
         if admin in self.admins:
-            self.loan_feature = False
+            self.loan = False
         else:
             print("You need administrative power...")

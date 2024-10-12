@@ -20,9 +20,22 @@ def main():
     # grameen.show_all_user(younus_sir)
     # grameen.show_all_user(hasnat)
     # print(grameen)
-    baker.deposit(1000)
-    baker.withdraw(2000)
+    baker.deposit(1000, grameen)
+    baker.withdraw(300, grameen)
+    baker.deposit(200, grameen)
+    # baker.check_balance()
+    baker.withdraw(1000, grameen)
 
+    # grameen.loan_feature_management(younus_sir)
+
+    baker.take_loan(1000, grameen)
+    baker.take_loan(1000, grameen)
+    baker.take_loan(1000, grameen)
+    baker.check_balance()
+    baker.transaction_history()
+
+    grameen.loan_amount(younus_sir)
+    grameen.total_balance(younus_sir)
 
 if __name__ == "__main__":
     main()
