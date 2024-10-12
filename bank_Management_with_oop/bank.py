@@ -74,6 +74,6 @@ class Bank:
 
     def loan_feature_management(self, admin):
         if admin in self.admins:
-            self.loan = False
+            self.loan ^= 1
         else:
             print("You need administrative power...")

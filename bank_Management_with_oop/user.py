@@ -34,11 +34,11 @@ class User(Person):
             print(f"Current balance {self.__balance}. Withdrawal {amount}.")
             self.transactions.append(f"Successful withdrawal of {amount} taka. Current balance is {self.__balance} taka.")
         else:
-            print(f"Not enough money to withdraw {amount} taka.")
-            self.transactions.append(f"unsuccessful withdrawal attempt of {amount} taka. Current balance is {self.__balance} taka.")
+            print(f"Withdrawal amount exceeded. You don't have {amount} taka in your balance.")
+            self.transactions.append(f"Unsuccessful withdrawal attempt of {amount} taka. Current balance is {self.__balance} taka.")
 
     def check_balance(self):
-        print(f"Your current balance is {self.__balance} taka.")
+        print(f"{self.name}, your current balance is {self.__balance} taka.")
 
     def transaction_history(self):
         print("---------Transactions History--------")
@@ -63,8 +63,18 @@ class User(Person):
     def pay_loan(self, amount, bank):
         pass
 
-    def transfer_money(self, user, amount):
-        pass
+    def transfer_money(self, amount, user, bank):
+        if user not in bank.users:
+            print("Account does not exist.")
+        elif self.__balance > amount:
+            self.__balance -= amount
+            user.__balance += amount
+            print(f"Successful money transfer to {user.name} account {amount} taka.")
+            self.transactions.append(f"Successful money transfer {amount} taka to {user.name} account.")
+            user.transactions.append(f"You got {amount} taka from {self.name}.")
+        else:
+            print(f"Your balance is not sufficient to transfer {amount} taka.")
+            self.transactions.append(f"Unsuccessful money transfer attempt {amount} taka.")
 
 
 class Admin(Person):
