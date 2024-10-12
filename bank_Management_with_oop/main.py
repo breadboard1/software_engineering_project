@@ -35,7 +35,7 @@ def main():
     baker.take_loan(1000, grameen)
     baker.check_balance()
 
-    # rosul = User('Rahat ali', 'rahat@gmail.com', 'kokrol', 'savings')
+    # rosul = User('Rosul ali', 'rahat@gmail.com', 'kokrol', 'savings')
     # banglalink.add_admin(younus_sir)
     # banglalink.add_user(rosul)
 
