@@ -5,13 +5,28 @@
 #navbar-logo {
     width: 240px;
     height: 32px;
-    margin-left :300px;
+    margin-left :250px;
 }
 
 .navbar-items{
-    justify-content:center;
     gap: 50px;
     font:lighter;
+    align-items:center;
+    margin-right:250px;
+}
+/* media query for navbar */
+@media only screen and (max-width: 480px){
+    #navbar-logo{
+        width: 100px;
+        height: 50px;
+        margin-left :120px;
+    }
+    .navbar-items{
+        gap: 20px;
+        font:lighter;
+        align-items:center;
+        margin-right:120px;
+    }
 }
 
 .carousel {
@@ -24,7 +39,6 @@
 
 .carouser-content-container{
     display:flex;
-
 }
 
 .banner-text-container {
@@ -34,9 +48,36 @@
 }
 
 .banner-image{
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 10px;
     align-items:center;
+}
+
+/* media query for carousel */
+@media only screen and (max-width: 480px){
+    .carousel {
+        width: 100%;
+        height: 800px;
+        margin: auto;
+        background:linear-gradient(to right, #bfdfc7, #FFFFFF);
+        overflow:hidden;
+        align-items:center;
+        text-align:center;
+    }
+    .banner-text-container {
+        padding: 10px;
+        margin: 10px;
+        justify-content:center; align-items:center;
+    }
+    .banner-image{
+        margin-top: 10px;
+        padding: 10px;
+        align-items:center;
+    }
+    .carouser-content-container{
+        flex-direction:column;
+    }
+
 }
 
 .ipad-mac-airpod{
@@ -52,11 +93,10 @@
 }
 
 .ipad-container{
-    padding: 10px;align-items:center;
+    padding: 10px;
+    align-items:center;
     height: 300px;
 }
-
-
 
 .airpod-container{
     background:#ADC2D7;
@@ -83,6 +123,36 @@
     width: 100%;
 }
 
+/* ipad, airpod and macbook div media query */
+@media only screen and (max-width: 480px){
+    .ipad-mac-airpod{
+        width:100%;
+        height:auto;
+        flex-direction:column;
+        overflow:hidden;
+        margin-bottom:100px;
+    }
+    .ipad-container{
+        padding: 5px;
+        align-items:center;
+        height: 300px;
+    }
+    .airpod-container{
+        background:#ADC2D7;
+        height: 300px;
+        padding:15px;
+        justify-content:center;
+        text-align:center;
+        align-items:center;
+    }
+    .mackbook-container{
+        align-items:center;
+        padding: 50px;
+        height:350px;
+        background:#EDEDED;
+    }
+}
+
 .feature-icon{
     width: 50px;
     height: 50px;
@@ -94,12 +164,42 @@
     justify-content: space-between;
     width: 160px;
     height: 130px;
+    text-align:center;
+    background:#EDEDED;
 }
 
 .category{
     margin-right: 300px;
     margin-left: 300px;
     justify-content: space-between;
+}
+
+#cat-heading{
+    margin-top: 100px;
+    margin-left: 300px;
+}
+
+/* category portion */
+@media only screen and (max-width: 480px){
+    .category{
+        margin-right: 50px;
+        margin-left: 50px;
+        flex: 1 0 50%;
+        flex-wrap:wrap;
+        justify-content:space-around;
+        gap:10px;
+    }
+    #cat-heading{
+        margin-top: 50px;
+        margin-left: 100px;
+    }
+}
+
+.feature-product-tags{
+    margin-top: 100px;
+    margin-left: 300px;
+    margin-bottom: 20px;
+    gap: 50px;
 }
 
 .feature-products{
@@ -110,12 +210,36 @@
     gap: 10px;
 }
 
-.feature-product-tags{
-    margin-top: 100px;
-    margin-left: 300px;
-    margin-bottom: 20px;
-    gap: 50px;
+.product{
+    width: 18rem;
 }
+
+
+/* media query for feature products */
+@media only screen and (max-width : 480px){
+    .feature-product-tags{
+        margin-top: 50px;
+        margin-left: 30px;
+        margin-bottom: 10px;
+        gap: 15px;
+    }
+    .feature-products{
+        margin-left: 10px;
+        margin-right: 10px;
+        justify-content:space-around;
+        align-items:center;
+        flex: 1 0 50%;
+        flex-wrap:wrap;
+        gap: 10px;
+    }
+    .product{
+        width: 10rem;
+        padding:5px;
+        gap: 5px;
+    }
+}
+
+
 
 .sale-container{
     justify-content:space-between;
@@ -123,25 +247,8 @@
     padding: 50px;
 }
 
-.banner-content{
-    padding: 200px;
-    justify-content:center;
-}
 
-
-.style-bar{
-    justify-content:center;
-}
-
-
-.ipad-container{
-    padding : 15px;
-    justify-content:center;
-    align-items:center;
-}
-
-
-
+/* footer section */
 .footer-logo{
     width: 230px;
     height: 50px;
@@ -170,4 +277,23 @@ footer{
 
 .footer-icon-container{
     justify-content:space-between;
+}
+
+@media only screen and (max-width : 480px){
+    .footer-content{
+        margin-left: 50px;
+        margin-right: 50px;
+        gap: 5px;
+        flex-direction : column;
+    }
+    .footer-logo{
+        width: 200px;
+        height: 50px;
+    }
+    .footer-icon{
+        width: 16px;
+        height: 16px;
+        margin-right: 30px;
+        gap:5px;
+    }
 }

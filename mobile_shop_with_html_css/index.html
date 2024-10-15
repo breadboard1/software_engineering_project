@@ -11,33 +11,38 @@
 </head>
 <body>
   <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <ul class="navbar-items navbar-nav">
-                <li>
-                    <img src="./resources/Group 2.png" id="navbar-logo" alt="Shop Hero icon" />
-                </li>
-                <li>
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="./resources/Group 2.png" id="navbar-logo" alt="Shop Hero icon" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-items navbar-nav ms-auto">
+                <li class="nav-item">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">About</a>
+                    <a class="nav-link" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+                    <a class="nav-link" href="#">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><i class="fa-regular fa-user"></i></a>
+                    <a class="nav-link" href="#"><i class="fa-regular fa-user"></i></a>
                 </li>
             </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- banner -->
     <div id="carouselExample" class="carousel slide">
@@ -130,7 +135,7 @@
 
     <!-- category fields -->
 
-    <h1 style="margin-top: 100px; margin-left: 300px;">Browse By Category</h1>
+    <h1 id="cat-heading">Browse By Category</h1>
     <div class="category d-flex" style="margin-top: 30px">
         <div class="card">
             <img class="feature-icon" src="./resources/smart_phones.jpg" >
@@ -165,7 +170,7 @@
         <h5>Featured Products</h5>
     </div>
     <div class="feature-products d-flex">
-        <div class="card" style="width: 18rem;">
+        <div class="card product">
             <img class="card-img-top" src="./resources/Iphone 14 pro 1-2.png" alt="Card image cap">
             <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -173,7 +178,7 @@
                 <a href="#" class="btn btn-primary">Buy Now</a>
             </div>
           </div>
-          <div class="card" style="width: 18rem;">
+          <div class="card product">
             <img class="card-img-top" src="./resources/Iphone 14 pro 1-3.png" alt="Card image cap">
             <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -181,7 +186,7 @@
               <a href="#" class="btn btn-primary">Buy Now</a>
             </div>
           </div>
-          <div class="card" style="width: 18rem;">
+          <div class="card product">
             <img class="card-img-top" src="./resources/Iphone 14 pro 1-1.png" alt="Card image cap">
             <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -189,7 +194,7 @@
               <a href="#" class="btn btn-primary">Buy Now</a>
             </div>
           </div>
-          <div class="card" style="width: 18rem;">
+          <div class="card product">
             <img class="card-img-top" src="./resources/Iphone 14 pro 1.png" alt="Card image cap">
             <div class="card-body">
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -200,11 +205,11 @@
     </div>
 
     <!-- 11-11 sales -->
-    <div class="sale-container d-flex" style="background:#958AD4; margin-top:20px;">
+    <div class="sale-container row d-flex" style="background:#958AD4; margin-top:20px;">
         <div class="col-md-4">
             <img style="width:400px; height:300px;" src="./resources/image 19.png">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 text-center">
             <h1>11.11 Sale</h1>
             <p>She offered no response. to present solemnly as an act of worship or devotion, as to God, a deity or a saint; sacrifice. to present for sale: He offered the painting to me at a reduced price.</p>
         </div>
