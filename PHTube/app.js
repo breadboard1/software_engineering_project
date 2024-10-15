@@ -20,7 +20,7 @@ const displayMenu = (data) => {
     card.innerHTML = `
     <button
         onclick = "displayBody(${element.category_id})"
-        type="button"
+        type="button" class="border-0 p-2"
       >
       ${element.category}
       </button>
@@ -41,8 +41,8 @@ const displayBody = async (id = 1000) => {
     if (data.data.length == 0) {
       const card = document.createElement("div");
       card.innerHTML = `
-      <div class="no-icon-warning">
-        <img id="nothing-box" src="./PHero-Tube-main/Icon.png" alt="">
+      <div class="text-center">
+        <img id="" src="./PHero-Tube-main/Icon.png" alt="">
         <br>
         <h1>Oops!! Sorry, There is no content here</h1>
       </div>
@@ -52,19 +52,19 @@ const displayBody = async (id = 1000) => {
     }
     data.data.forEach((element) => {
       const card = document.createElement("div");
-      card.classList.add("video-box");
+      card.classList.add("card","col-md-3");
       card.innerHTML = `
-      <img class="thumbnail-box" src="${element.thumbnail}" alt="">
+      <img class="w-100 h-auto" src="${element.thumbnail}" alt="">
       <br>
-      <div class = "profile-title-container">
-        <img class="profile-box" src="${
+      <div class = "w-100 d-flex">
+        <img class="w-25" src="${
           element.authors[0].profile_picture
         }" alt="">
         <h3>${element.title}</h3>
       </div>
-      <div class = "name-verification-container">
+      <div class = "d-flex">
         <p>${element.authors[0].profile_name}</p>
-        <img class="verified-box" src="${
+        <img class="border-none" style="width:10px; height:10px;" src="${
           element.authors[0].verified ? "./PHero-Tube-main/verified.png" : ""
         }" alt="">
       </div>
@@ -94,19 +94,19 @@ const displaySorted = async () => {
     );
     data.data.forEach((element) => {
       const card = document.createElement("div");
-      card.classList.add("video-box");
+      card.classList.add("video-box", "card","col-md-3", "w-100");
       card.innerHTML = `
-      <img class="thumbnail-box" src="${element.thumbnail}" alt="">
+      <img class="" src="${element.thumbnail}" alt="">
       <br>
-      <div class = "profile-title-container">
-        <img class="profile-box" src="${
+      <div class = "">
+        <img class="" src="${
           element.authors[0].profile_picture
         }" alt="">
         <h3>${element.title}</h3>
       </div>
-      <div class = "name-verification-container">
+      <div class = "">
         <p>${element.authors[0].profile_name}</p>
-        <img class="verified-box" src="${
+        <img class="" src="${
           element.authors[0].verified ? "./PHero-Tube-main/verified.png" : ""
         }" alt="">
       </div>
