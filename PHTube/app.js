@@ -20,7 +20,7 @@ const displayMenu = (data) => {
     card.innerHTML = `
     <button
         onclick = "displayBody(${element.category_id})"
-        type="button" class="border-0 p-2"
+        type="button" class="border-0 p-2 custom-hover rounded"
       >
       ${element.category}
       </button>
@@ -52,19 +52,19 @@ const displayBody = async (id = 1000) => {
     }
     data.data.forEach((element) => {
       const card = document.createElement("div");
-      card.classList.add("card","col-md-3");
+      card.classList.add("card","col-md-3", "border-0");
       card.innerHTML = `
-      <img class="w-100 h-auto" src="${element.thumbnail}" alt="">
+      <img class="w-100 rounded" src="${element.thumbnail}" alt="">
       <br>
       <div class = "w-100 d-flex">
-        <img class="w-25" src="${
+        <img class="w-25 rounded-circle" src="${
           element.authors[0].profile_picture
         }" alt="">
         <h3>${element.title}</h3>
       </div>
       <div class = "d-flex">
         <p>${element.authors[0].profile_name}</p>
-        <img class="border-none" style="width:10px; height:10px;" src="${
+        <img class="border-0 w-25" src="${
           element.authors[0].verified ? "./PHero-Tube-main/verified.png" : ""
         }" alt="">
       </div>
