@@ -56,13 +56,13 @@
     height: 300px;
 }
 
+
+
 .airpod-container{
     background:#ADC2D7;
-    /* overflow:hidden; */
-    /* padding: 10px; */
     height: 600px;
-    /* justify-content:center;
-    align-items:center; */
+    padding:15px;
+    justify-content:center;
 }
 
 .airpod-image{
@@ -92,6 +92,8 @@
     align-items:center;
     padding: 10px;
     justify-content: space-between;
+    width: 160px;
+    height: 130px;
 }
 
 .category{
@@ -126,9 +128,6 @@
     justify-content:center;
 }
 
-.banner-headline{
-    /* font-size: 100px; */
-}
 
 .style-bar{
     justify-content:center;
@@ -141,11 +140,7 @@
     align-items:center;
 }
 
-.airpod-container{
-    padding:15px;
-    justify-content:center;
-    align-items:center;
-}
+
 
 .footer-logo{
     width: 230px;
