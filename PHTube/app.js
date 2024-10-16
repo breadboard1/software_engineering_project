@@ -56,15 +56,15 @@ const displayBody = async (id = 1000) => {
       card.innerHTML = `
       <img class="w-100 rounded" src="${element.thumbnail}" alt="">
       <br>
-      <div class = "w-100 d-flex">
-        <img class="w-25 rounded-circle" src="${
+      <div class = "w-100 d-flex gap-2">
+        <img class="rounded-circle" style="width:30px; height:30px;" src="${
           element.authors[0].profile_picture
         }" alt="">
         <h3>${element.title}</h3>
       </div>
-      <div class = "d-flex">
+      <div class = "d-flex gap-1">
         <p>${element.authors[0].profile_name}</p>
-        <img class="border-0 w-25" src="${
+        <img class="border-0" style="width:15px; height:15px;" src="${
           element.authors[0].verified ? "./PHero-Tube-main/verified.png" : ""
         }" alt="">
       </div>
@@ -94,19 +94,19 @@ const displaySorted = async () => {
     );
     data.data.forEach((element) => {
       const card = document.createElement("div");
-      card.classList.add("video-box", "card","col-md-3", "w-100");
+      card.classList.add("card","col-md-3", "border-0");
       card.innerHTML = `
-      <img class="" src="${element.thumbnail}" alt="">
+      <img class="w-100 rounded" src="${element.thumbnail}" alt="">
       <br>
-      <div class = "">
-        <img class="" src="${
+      <div class = "w-100 d-flex gap-2">
+        <img class="rounded-circle" style="width:30px; height:30px;" src="${
           element.authors[0].profile_picture
         }" alt="">
         <h3>${element.title}</h3>
       </div>
-      <div class = "">
+      <div class = "d-flex gap-1">
         <p>${element.authors[0].profile_name}</p>
-        <img class="" src="${
+        <img class="border-0" style="width:15px; height:15px;" src="${
           element.authors[0].verified ? "./PHero-Tube-main/verified.png" : ""
         }" alt="">
       </div>
