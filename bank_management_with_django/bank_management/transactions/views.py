@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.utils import timezone
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic import CreateView, ListView
@@ -15,8 +15,10 @@ from transactions.forms import (
     DepositForm,
     WithdrawForm,
     LoanRequestForm,
+    TransferMoneyForm,
 )
 from transactions.models import Transaction
+from accounts.models import UserBankAccount
 
 def send_transaction_email(user, amount, subject, template):
         message = render_to_string(template, {
@@ -184,3 +186,39 @@ class LoanListView(LoginRequiredMixin,ListView):
         queryset = Transaction.objects.filter(account=user_account,transaction_type=3)
         print(queryset)
         return queryset
+
+
+class TransferMoneyView(View):
+    template_name='transactions/transfer_money.html'
+    def get(self, request):
+        form = TransferMoneyForm()
+        return render(request, self.template_name, {'form':form})
+
+    def post(self, request):
+        form = TransferMoneyForm(request.POST)
+        if form.is_valid():
+            amount = form.cleaned_data['amount']
+            to_user_id = form.cleaned_data['to_user_id']
+
+            current_user = request.user.account
+
+            try:
+                to_user = UserBankAccount.objects.get(account_no=to_user_id)
+            except UserBankAccount.DoesNotExist:
+                messages.warning(request, "Account does not exist!")
+                return render(request, self.template_name, {'form': form, 'title': 'Transfer Money'})
+
+            if current_user.balance < amount:
+                messages.warning(request, "Insufficient Balance to transfer the amount.")
+                return render(request, self.template_name, {'form': form, 'title': 'Transfer Money'})
+
+            current_user.balance -= amount
+            current_user.save()
+
+            to_user.balance += amount
+            to_user.save()
+
+            messages.success(request, "Successfully transfered!")
+            send_transaction_email(self.request.user, amount, "Transfer Successful", "transactions/transfer_email.html")
+            send_transaction_email(to_user.user, amount, "Received Money", "transactions/received_email.html")
+            return render(request, self.template_name, {'form':form, 'title':'Transfer Money'})

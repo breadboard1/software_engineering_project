@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from django.views.generic import FormView
 from .forms import UserRegistrationForm,UserUpdateForm
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views import View
 from django.shortcuts import redirect
+from django.contrib.auth.forms import PasswordChangeForm
 
 class UserRegistrationView(FormView):
     template_name = 'accounts/user_registration.html'
@@ -44,3 +48,17 @@ class UserBankAccountUpdateView(View):
             form.save()
             return redirect('profile')
         return render(request, self.template_name, {'form': form})
+
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            messages.success(request, 'Password Updated Successfully.')
+            return redirect('profile')
+    else:
+        form = PasswordChangeForm(user=request.user)
+    return render(request, './accounts/change_password.html', {'form':form})
